@@ -1,8 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ITodo } from "@app/todos/interfaces";
 import { TodosService } from "@app/todos/services/todos.service";
-import { addTodo, addTodoRequest } from "@app/todos/state/todo.actions";
-import { Store } from "@ngrx/store";
 
 @Component({
   selector: "app-todo-start",

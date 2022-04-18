@@ -1,3 +1,12 @@
+
+# Todo screenshots
+
+## Create Todos:
+![Create giphy](/Gifs/create.gif)
+
+## Update Todos:
+![Create giphy](/Gifs/update.gif)
+
 # LabCorp Clinical Development UI Developer Assessment
 
 ## Thank you for your interest in working with us at LabCorp!

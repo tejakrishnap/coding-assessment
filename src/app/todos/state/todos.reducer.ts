@@ -11,13 +11,7 @@ export interface ITodosState {
 
 export const initialState: ITodosState = {
   filterMode: "All",
-  todos: [
-    {
-      id: 1,
-      text: "First Todo",
-      completed: false,
-    },
-  ],
+  todos: [],
 };
 
 export function todosReducer(state: ITodosState, action: Action) {
@@ -66,6 +60,15 @@ export function todosReducer(state: ITodosState, action: Action) {
       let updatedTodos = _.cloneDeep(existingState.todos);
       updatedTodos[itemIndex].completed = !updatedTodos[itemIndex].completed;
 
+      return {
+        ...existingState,
+        todos: updatedTodos,
+      };
+    }),
+    on(TodoActions.toggleAllCompleted, (existingState) => {
+      let updatedTodos = _.cloneDeep(existingState.todos).filter(
+        (todo) => (todo.completed = true)
+      );
       return {
         ...existingState,
         todos: updatedTodos,

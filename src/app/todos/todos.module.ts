@@ -12,8 +12,6 @@ import { TodoInputComponent } from "./components/todo-input/todo-input.component
 import { FooterComponent } from "./components/footer/footer.component";
 import { TodoItemComponent } from "./components/todo-item/todo-item.component";
 import { Routes, RouterModule } from "@angular/router";
-import { ActiveTodosComponent } from "./components/active-todos/active-todos.component";
-import { CompletedTodosComponent } from "./components/completed-todos/completed-todos.component";
 
 const DECLARATIONS = [
   CompleteAllComponent,
@@ -22,8 +20,6 @@ const DECLARATIONS = [
   TodoInputComponent,
   TodoItemComponent,
   FooterComponent,
-  ActiveTodosComponent,
-  CompletedTodosComponent,
 ];
 
 const routes: Routes = [
@@ -39,8 +35,6 @@ const routes: Routes = [
     TodoInputComponent,
     FooterComponent,
     TodoItemComponent,
-    ActiveTodosComponent,
-    CompletedTodosComponent,
   ],
   exports: [...DECLARATIONS, RouterModule],
   imports: [
@@ -48,7 +42,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     StoreModule.forFeature("todos", todosReducer),
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "disabled" }),
   ],
   providers: [TodosService],
 })

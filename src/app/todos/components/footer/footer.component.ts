@@ -1,11 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FILTER_MODES } from "@app/todos/constants/filter-modes";
-import { FilterType } from "@app/todos/interfaces";
 import { TodosService } from "@app/todos/services/todos.service";
-import {
-  changeFilterMode,
-  clearCompleted,
-} from "@app/todos/state/todo.actions";
 import {
   getCurrentFilter,
   getTodoCount,

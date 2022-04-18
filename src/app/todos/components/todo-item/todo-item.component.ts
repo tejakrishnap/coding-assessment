@@ -1,6 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { Store } from "@ngrx/store";
-import { removeTodo, toggleCompleted } from "@app/todos/state/todo.actions";
 import { ITodo } from "@app/todos/interfaces";
 import { FormControl, Validators } from "@angular/forms";
 import { TodosService } from "@app/todos/services/todos.service";
@@ -14,6 +12,7 @@ export class TodoItemComponent implements OnInit {
   editField: FormControl;
   @Input() todo: ITodo;
   @Input() editing: boolean;
+  @Input() editingTodo: ITodo;
   @Output() editTodo: EventEmitter<ITodo> = new EventEmitter();
   @Output() updateTodo: EventEmitter<ITodo> = new EventEmitter();
   constructor(private todosService: TodosService) {
@@ -31,6 +30,7 @@ export class TodoItemComponent implements OnInit {
   }
 
   editMode(todo: ITodo) {
+    this.editField.setValue(todo.text);
     this.editTodo.emit(todo);
   }
 
