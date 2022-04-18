@@ -1,9 +1,23 @@
-<ul class="todo-list">
-  <li>
-    <div class="view">
-      <input class="toggle" type="checkbox" />
-      <label></label>
-      <button class="destroy"></button>
-    </div>
-  </li>
-</ul>
+<ng-container *ngIf="emptyTodos; else noTodos">
+  <ul
+    class="todo-list"
+    *ngIf="emptyTodos && (todos$ | async) as todos; else noTodos"
+  >
+    <li
+      *ngFor="let todo of todos"
+      [ngClass]="todo.completed ? 'completed' : ''"
+      [class.editing]="editing && todo.id === editingTodo.id"
+    >
+      <app-todo-item
+        [todo]="todo"
+        [editing]="editing"
+        (editTodo)="onEditTodo($event)"
+        (updateTodo)="onUpdateTodo($event)"
+        [editingTodo]="editingTodo"
+      ></app-todo-item>
+    </li>
+  </ul>
+</ng-container>
+<ng-template #noTodos
+  ><div class="no-matches">No todos are present.</div></ng-template
+>
