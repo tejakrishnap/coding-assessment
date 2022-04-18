@@ -1,21 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { Store } from "@ngrx/store";
 
-import { ITodo } from '../interfaces';
-import { ITodosState } from '../state/todos.reducer';
-import { FILTER_MODES } from '../constants/filter-modes';
-import * as TodoActions from '../state/todo.actions';
-import * as todoSelectors from '../state/todo.selectors';
+import { ITodo } from "../interfaces";
+import { ITodosState } from "../state/todos.reducer";
+import { FILTER_MODES } from "../constants/filter-modes";
+import * as TodoActions from "../state/todo.actions";
+import * as todoSelectors from "../state/todo.selectors";
 
 @Injectable()
 export class TodosService {
-
   allTodos$: Observable<ITodo[]>;
 
-  constructor(
-    private store: Store<ITodosState>,
-  ) {
+  constructor(private store: Store<ITodosState>) {
     this.allTodos$ = this.store.select(todoSelectors.allTodos);
   }
 

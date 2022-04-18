@@ -1,0 +1,15 @@
+<main class="todoapp">
+  <header class="header">
+    <h1>todos</h1>
+    <app-todo-input (saveTodo)="onSaveTodo($event)"></app-todo-input>
+  </header>
+  <section class="main">
+    <app-complete-all></app-complete-all>
+    <app-todos-list></app-todos-list>
+  </section>
+  <app-footer></app-footer>
+</main>
+<footer class="info">
+  <p>Double-click to edit a todo</p>
+</footer>
+<router-outlet></router-outlet>

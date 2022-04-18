@@ -1,0 +1,37 @@
+<footer class="footer">
+  <span class="todo-count"
+    >{{ count$ | async }}
+    {{ (count$ | async) > 1 ? "items" : "item" }} left</span
+  >
+  <ul class="filters">
+    <li>
+      <a
+        href="#"
+        [class.selected]="(currentfilter$ | async) === 'all'"
+        (click)="filterClicked('All')"
+        >All</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/active"
+        routerLinkActive="active"
+        [class.selected]="(currentfilter$ | async) === 'active'"
+        (click)="filterClicked('Active')"
+        >Active</a
+      >
+    </li>
+    <li>
+      <a
+        routerLink="/completed"
+        routerLinkActive="completed"
+        [class.selected]="(currentfilter$ | async) === 'completed'"
+        (click)="filterClicked('Completed')"
+        >Completed</a
+      >
+    </li>
+  </ul>
+  <button class="clear-completed" (click)="clearCompletedTodos()">
+    Clear completed
+  </button>
+</footer>

@@ -1,0 +1,17 @@
+<div class="view">
+  <input
+    class="toggle"
+    type="checkbox"
+    (change)="isChecked(todo)"
+    [checked]="todo.completed"
+  />
+  <label (dblclick)="editMode(todo)">{{ todo.text }}</label>
+  <button class="destroy" (click)="removeTodo(todo.id)"></button>
+</div>
+<input
+  class="edit"
+  type="text"
+  (keyup.enter)="updateText(todo)"
+  [formControl]="editField"
+  [hidden]="editing"
+/>
